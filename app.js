@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const api = express();
 api.use(cors());
 
-const apiKey = "RGAPI-35a09d36-de8d-4b1b-8137-32534adfd528";
+const apiKey = "RGAPI-55212d6a-7a5d-40dc-b17d-34fc6034c3f2";
 
 api.get("/summoner-info", async (req, res) => {
     const summInfoResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.query.sumName}?api_key=${apiKey}`);
@@ -16,6 +16,18 @@ api.get("/summoner-league", async (req, res) => {
     const summLeagueResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${req.query.sumID}?api_key=${apiKey}`);
     const summLeague = await summLeagueResponse.json();
     res.send(summLeague);
+});
+
+api.get("/match-list", async (req, res) => {
+    const matchListResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${req.query.puuid}/ids?start=0&count=20&api_key=${apiKey}`);
+    const matchList = await matchListResponse.json();
+    res.send(matchList);
+});
+
+api.get("/match-info", async (req, res) => {
+    const matchInfoResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/match/v5/matches/${req.query.matchId}?api_key=${apiKey}`);
+    const matchInfo = await matchInfoResponse.json();
+    res.send(matchInfo);
 });
 
 api.listen(3000, () => {

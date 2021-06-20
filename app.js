@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const api = express();
 api.use(cors());
 
-const apiKey = "RGAPI-55212d6a-7a5d-40dc-b17d-34fc6034c3f2";
+const apiKey = "SI LA NECESITAS DIME";
 
 api.get("/summoner-info", async (req, res) => {
     const summInfoResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.query.sumName}?api_key=${apiKey}`);

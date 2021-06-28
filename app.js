@@ -19,7 +19,7 @@ api.get("/summoner-league", async (req, res) => {
 });
 
 api.get("/match-list", async (req, res) => {
-    const matchListResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${req.query.puuid}/ids?start=0&count=${req.query.count}&api_key=${apiKey}`);
+    const matchListResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${req.query.puuid}/ids?type=${req.query.matchType}&start=0&count=${req.query.count}&api_key=${apiKey}`);
     const matchList = await matchListResponse.json();
     res.send(matchList);
 });

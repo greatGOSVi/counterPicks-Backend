@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const api = express();
 api.use(cors());
 
-const apiKey = "SI LA NECESITAS DIME";
+const apiKey = "RGAPI-e3401fb5-80f0-48d4-92b0-0d3ba2521f6a";
 
 api.get("/summoner-info", async (req, res) => {
     const summInfoResponse = await fetch(`https://${req.query.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.query.sumName}?api_key=${apiKey}`);
@@ -30,6 +30,6 @@ api.get("/match-info", async (req, res) => {
     res.send(matchInfo);
 });
 
-api.listen(3000, () => {
-    console.log("Open Port 3000");
+api.listen(3001, () => {
+    console.log("Open Port 3001");
 });

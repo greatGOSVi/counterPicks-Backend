@@ -30,6 +30,10 @@ api.get("/match-info", async (req, res) => {
     res.send(matchInfo);
 });
 
+api.get("/league-img", async (req, res) => {
+    res.sendFile(`C:/Users/Mariela Villanueva/Desktop/counterPicks_Backend/images/rankedEmblems/${req.query.tierRank}.png`);
+});
+
 api.listen(3001, () => {
     console.log("Open Port 3001");
 });

@@ -5,13 +5,20 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "holiwi": "echo Holiwi ugu"
+    "dev": "nodemon app.js"
   },
   "author": "GOSVi",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "express-myconnection": "^1.0.4",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.7",
+    "sequelize": "^6.26.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
